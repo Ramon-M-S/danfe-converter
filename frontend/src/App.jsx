@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logoSvg from './assets/logo.svg';
 import axios from 'axios';
 import './App.css';
 
@@ -8,6 +9,8 @@ function App() {
   const [message, setMessage] = useState('');
   const [pdfUrl, setPdfUrl] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
+
+  
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -27,6 +30,7 @@ function App() {
     return;
   }
 
+  
   const formData = new FormData();
   formData.append('xml', selectedFile);
 
@@ -64,6 +68,7 @@ function App() {
   }
 };
 
+
   const handleDownload = () => {
     if (pdfUrl) {
       const link = document.createElement('a');
@@ -75,6 +80,7 @@ function App() {
 
   return (
     <div className="app">
+       <img src={logoSvg} alt="DANFE Converter" className="app-logo" />
       <div className="grid">
         {/* Lado Esquerdo - Upload */}
         <div className="left-panel">
